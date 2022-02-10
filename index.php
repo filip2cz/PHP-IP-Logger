@@ -25,24 +25,19 @@ function GetIP()
 
 function logData() 
 { 
-	$ipLog="log.txt"; 
-	$cookie = $_SERVER['QUERY_STRING']; 
+	$ipLog="log.txt";
 	$register_globals = (bool) ini_get('register_gobals'); 
 	if ($register_globals) $ip = getenv('REMOTE_ADDR'); 
 	else $ip = GetIP(); 
-
 	$rem_port = $_SERVER['REMOTE_PORT']; 
-	$user_agent = $_SERVER['HTTP_USER_AGENT']; 
-	$rqst_method = $_SERVER['METHOD']; 
-	$rem_host = $_SERVER['REMOTE_HOST']; 
-	$referer = $_SERVER['HTTP_REFERER']; 
+	$user_agent = $_SERVER['HTTP_USER_AGENT'];
 	$date=date ("l dS of F Y h:i:s A"); 
 	$log=fopen("$ipLog", "a+"); 
 
 	if (preg_match("/\bhtm\b/i", $ipLog) || preg_match("/\bhtml\b/i", $ipLog)) 
-		fputs($log, "IP: $ip | PORT: $rem_port | HOST: $rem_host | Agent: $user_agent | METHOD: $rqst_method | REF: $referer | DATE{ : } $date | COOKIE:  $cookie <br>"); 
+		fputs($log, "IP: $ip | PORT: $rem_port | Agent: $user_agent | DATE{ : } $date"); 
 	else 
-		fputs($log, "IP: $ip | PORT: $rem_port | HOST: $rem_host |  Agent: $user_agent | METHOD: $rqst_method | REF: $referer |  DATE: $date | COOKIE:  $cookie \n\n"); 
+		fputs($log, "IP: $ip | PORT: $rem_port | Agent: $user_agent | DATE{ : } $date\n"); 
 	fclose($log); 
 } 
 
