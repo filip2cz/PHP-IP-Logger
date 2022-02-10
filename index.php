@@ -31,14 +31,14 @@ function logData()
 	else $ip = GetIP(); 
 	$rem_port = $_SERVER['REMOTE_PORT']; 
 	$user_agent = $_SERVER['HTTP_USER_AGENT'];
-	$date=date ("l dS of F Y h:i:s A"); 
+	$date=date ("o/m/d H:i:s"); 
 	$log=fopen("$ipLog", "a+"); 
-
-	if (preg_match("/\bhtm\b/i", $ipLog) || preg_match("/\bhtml\b/i", $ipLog)) 
-		fputs($log, "IP: $ip | PORT: $rem_port | Agent: $user_agent | DATE{ : } $date"); 
+    
+    	if (preg_match("/\bhtm\b/i", $ipLog) || preg_match("/\bhtml\b/i", $ipLog)) 
+		fputs($log, "[$date] $ip:$rem_port - $user_agent"); 
 	else 
-		fputs($log, "IP: $ip | PORT: $rem_port | Agent: $user_agent | DATE{ : } $date\n"); 
-	fclose($log); 
+		fputs($log, "[$date] $ip:$rem_port - $user_agent\n"); 
+	fclose($log);
 } 
 
 logData();
