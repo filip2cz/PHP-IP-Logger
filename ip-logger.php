@@ -27,9 +27,9 @@ function logData()
 	$log=fopen("$ipLog", "a+"); 
     
     	if (preg_match("/\bhtm\b/i", $ipLog) || preg_match("/\bhtml\b/i", $ipLog)) 
-		fputs($log, "[$date] $ip:$rem_port - $user_agent"); 
+		fputs($log, "[$date] $ip (port: $rem_port) - $user_agent"); 
 	else 
-		fputs($log, "[$date] $ip:$rem_port - $user_agent\n"); 
+		fputs($log, "[$date] $ip (port: $rem_port) - $user_agent\n"); 
 	fclose($log);
 } 
 
